@@ -10,15 +10,14 @@ for i in range(n):
 
 #행복한 수열인지 판단하는 방법
 def is_happy_sequence(lst):
-    # print(lst)
-    max_seq=0
+    max_seq=1
     current_seq=1
     for i in range(len(lst)-1):
         if lst[i] == lst[i+1]:
             current_seq+=1
-
+        else:
+            current_seq = 1
         max_seq = max(current_seq,max_seq)
-    # print(max_seq)
     return max_seq
 
 
@@ -39,16 +38,13 @@ for i in range(n):
     cols.append(temp)
 
 
-
 #행복한지 확인하기
 for row in rows:
     if is_happy_sequence(row)>=m:
-        # print(row)
         result+=1
 
 for col in cols:
     if is_happy_sequence(col)>=m:
-        # print(col)
         result+=1
 
 print(result)
