@@ -8,14 +8,30 @@ for i in range(n):
     row = list(map(int,input().split()))
     matrix.append(row)
 
-# print(matrix)
+#행복한 수열인지 판단하는 방법
+def is_happy_sequence(lst):
+    # print(lst)
+    max_seq=0
+    current_seq=1
+    for i in range(len(lst)-1):
+        if lst[i] == lst[i+1]:
+            current_seq+=1
+
+        max_seq = max(current_seq,max_seq)
+    # print(max_seq)
+    return max_seq
+
+
+
 result = 0
+
+
 # 각행과 각열에서 수열의 수를 구하면 됨
-#행이 연속하는가?
+#행 만들기
 rows = matrix
 
 cols = []
-#열이 연속하는가?
+# 열 만들기
 for i in range(n):
     temp=[]
     for j in range(n):
@@ -23,44 +39,16 @@ for i in range(n):
     cols.append(temp)
 
 
-if m==1:
-    print(len(cols)+len(rows))
-else:
-    for row in rows:
-        cnt_max=0
-        cnt = 0 
-        #m만큼 연속인가?
-        for i in range(len(row)):
-            if (i+m-1) < len(row):
-                #연속인지 체크 
-                for j in range(i+1,i+m):
-                    if row[i] == row[j]:
-                        cnt+=1
-                        # print(row[i],row[j],cnt)
-                    
-                    cnt_max = max(cnt,cnt_max)
-    
-        if cnt_max >= m-1:
-            result+=1
-            break
 
-    # print(result)
-    # print(cols)
-    for col in cols:
-        #m만큼 연속인가?
-        cnt_max=0
-        cnt = 0
-        for i in range(len(col)):
-            if (i+m-1) < len(col):
-                for j in range(i+1,i+m):
-                    if col[i] == col[j]:
-                        cnt+=1
-                        # print(col[i],col[j],cnt)
-                    
-                    cnt_max = max(cnt,cnt_max)
-        if cnt_max > m-1:
-            result+=1
-            break
+#행복한지 확인하기
+for row in rows:
+    if is_happy_sequence(row)>=m:
+        # print(row)
+        result+=1
 
+for col in cols:
+    if is_happy_sequence(col)>=m:
+        # print(col)
+        result+=1
 
-    print(result)
+print(result)
