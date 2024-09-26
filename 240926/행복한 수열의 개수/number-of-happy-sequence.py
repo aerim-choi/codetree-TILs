@@ -22,29 +22,33 @@ for i in range(n):
         temp.append(matrix[j][i])
     cols.append(temp)
 
-for row in rows:
-    #m만큼 연속인가?
-    flag=0
-    for i in range(len(row)):
-        if (i+m-1) < len(row):
-            for j in range(i+1,i+m):
-                if row[i] == row[j]:
-                    if flag==0:
-                        result+=1
-                        flag=1
-                break
 
-# print(cols)
-for col in cols:
-    #m만큼 연속인가?
-    flag=0
-    for i in range(len(col)):
-        if (i+m-1) < len(col):
-            for j in range(i+1,i+m):
-                if col[i] == col[j]:
-                    if flag == 0:
-                        result+=1
-                        flag=1
-                break
+if m==1:
+    print(len(cols)+len(rows))
+else:
+    for row in rows:
+        cnt = 0 
+        #m만큼 연속인가?
+        for i in range(len(row)):
+            if (i+m-1) < len(row):
+                for j in range(i+1,i+m):
+                    if row[i] == row[j]:
+                        cnt+=1
+                    break
+            if cnt >=m:
+                result+=1
+    # print(cols)
+    for col in cols:
+        #m만큼 연속인가?
+        cnt = 0
+        for i in range(len(col)):
+            if (i+m-1) < len(col):
+                for j in range(i+1,i+m):
+                    if col[i] == col[j]:
+                        cnt+=1
+                    break
+            if cnt >=m:
+                result+=1
 
-print(result)
+
+    print(result)
