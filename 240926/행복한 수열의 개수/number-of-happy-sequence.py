@@ -33,10 +33,15 @@ else:
             if (i+m-1) < len(row):
                 for j in range(i+1,i+m):
                     if row[i] == row[j]:
+                        # print(row[i],row[j])
                         cnt+=1
+                        # print(cnt)
                     break
-            if cnt >=m:
-                result+=1
+        if cnt > 0:
+            result+=1
+            break
+
+    # print(result)
     # print(cols)
     for col in cols:
         #m만큼 연속인가?
@@ -45,10 +50,12 @@ else:
             if (i+m-1) < len(col):
                 for j in range(i+1,i+m):
                     if col[i] == col[j]:
+                        # print(col[i],col[j])
                         cnt+=1
                     break
-            if cnt >=m:
-                result+=1
+        if cnt > 0:
+            result+=1
+            break
 
 
     print(result)
