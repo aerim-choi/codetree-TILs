@@ -27,17 +27,20 @@ if m==1:
     print(len(cols)+len(rows))
 else:
     for row in rows:
+        cnt_max=0
         cnt = 0 
         #m만큼 연속인가?
         for i in range(len(row)):
             if (i+m-1) < len(row):
+                #연속인지 체크 
                 for j in range(i+1,i+m):
                     if row[i] == row[j]:
-                        # print(row[i],row[j])
                         cnt+=1
-                        # print(cnt)
-                    break
-        if cnt > 0:
+                        # print(row[i],row[j],cnt)
+                    
+                    cnt_max = max(cnt,cnt_max)
+    
+        if cnt_max >= m-1:
             result+=1
             break
 
@@ -45,15 +48,17 @@ else:
     # print(cols)
     for col in cols:
         #m만큼 연속인가?
+        cnt_max=0
         cnt = 0
         for i in range(len(col)):
             if (i+m-1) < len(col):
                 for j in range(i+1,i+m):
                     if col[i] == col[j]:
-                        # print(col[i],col[j])
                         cnt+=1
-                    break
-        if cnt > 0:
+                        # print(col[i],col[j],cnt)
+                    
+                    cnt_max = max(cnt,cnt_max)
+        if cnt_max > m-1:
             result+=1
             break
 
