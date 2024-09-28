@@ -26,7 +26,7 @@ def rotate(matrix):
 n, t = map(int, input().split())
 
 matrix =[]
-for i in range(n):
+for i in range(3):
     matrix.append(list(map(int, input().split())))
 
 
