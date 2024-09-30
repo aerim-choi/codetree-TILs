@@ -23,20 +23,16 @@ def choose_num(curr_idx):
 def check_beautiful_num(number_list):
     i=0
     while i < n:
-        if number_list[i] == '1':
-            i+=1
-            
-        elif i+1 < n and number_list[i]=='2' and number_list[i+1] == '2':
-            i+=2
+        #연속한 숫자만큼 올 수 없으면 False
+        if i+int(number_list[i])-1 >= n:
+            return False 
+
+        # 연속한 숫자만큼 올 수 있으면 아름다운 수 인지 체크하기 
+        for j in range(i,i+int(number_list[i])):
+            if number_list[i] != number_list[j]:
+                return False
         
-        elif i+2 < n and number_list[i] =='3' and number_list[i+1]=='3' and number_list[i+2]=='3':
-            i+=3
-        
-        elif i+3 < n and number_list[i] =='4' and number_list[i+1]=='4' and number_list[i+2] =='4' and number_list[i+3]=='4':
-            i+=4
-        
-        else:
-            return False
+        i+=int(number_list[i])
     return True
 
 
