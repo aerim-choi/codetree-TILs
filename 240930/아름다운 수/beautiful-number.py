@@ -21,19 +21,19 @@ def choose_num(curr_idx):
         return 
 
 def check_beautiful_num(number_list):
-    next_idx=1
-    for i in range(0,n,next_idx):
+    i=0
+    while i < n:
         if number_list[i] == '1':
-            next_idx=1
+            i+=1
             
         elif i+1 < n and number_list[i]=='2' and number_list[i+1] == '2':
-            next_idx=2
+            i+=2
         
         elif i+2 < n and number_list[i] =='3' and number_list[i+1]=='3' and number_list[i+2]=='3':
-            next_idx=3
+            i+=3
         
         elif i+3 < n and number_list[i] =='4' and number_list[i+1]=='4' and number_list[i+2] =='4' and number_list[i+3]=='4':
-            next_idx=4
+            i+=4
         
         else:
             return False
