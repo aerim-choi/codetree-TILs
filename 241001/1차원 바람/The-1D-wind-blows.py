@@ -78,7 +78,6 @@ for (raw,direction) in wind_directions:
             if check_blow(wind_matrix[i],wind_matrix[i-1])==False:
                 break
             else:
-                print(wind_matrix[i-1])
                 if flag=='R':
                     right_blow_wind(wind_matrix[i-1])
                     flag='L'
@@ -92,7 +91,6 @@ for (raw,direction) in wind_directions:
             if check_blow(wind_matrix[i], wind_matrix[i+1])==False:
                 break
             else:
-                print("hello:",wind_matrix[i+1])
                 if flag=='R':
                     right_blow_wind(wind_matrix[i+1])
                     flag='L'
