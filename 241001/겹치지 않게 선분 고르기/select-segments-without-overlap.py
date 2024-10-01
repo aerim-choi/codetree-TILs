@@ -10,6 +10,7 @@ vertical = []
 for i in range(0,1001):
     vertical.append(0)
 
+line.sort(key= lambda x:(x[1]-x[0]))
 
 answer= 0 
 for x1,x2 in line:
