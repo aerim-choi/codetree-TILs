@@ -8,17 +8,20 @@ N, M =map(int,input().split())
 graph=[]
 visited = []
 
-for i in range(0,N+1):
-    visited.append(0)
+if M == 0:
+    print(0)
+else:
+    for i in range(0,N+1):
+        visited.append(0)
 
-for i in range(0,N+1):
-    graph.append([])
+    for i in range(0,N+1):
+        graph.append([])
 
-for i in range(M):
-    x,y =map(int,input().split())
-    graph[x].append(y)
-    graph[y].append(x)
+    for i in range(M):
+        x,y =map(int,input().split())
+        graph[x].append(y)
+        graph[y].append(x)
 
-dfs(1)
+    dfs(1)
 
-print(sum(visited)-1)
+    print(sum(visited)-1)
