@@ -27,9 +27,9 @@ matrix= []
 for i in range(N):
     matrix.append(list(map(int,input().split())))
 
-max_range_K = 0
+max_range_K = 1
 max_result = 0
-max_k=0
+max_k=1
 for i in range(N):
     max_range_K = max(max_range_K, max(matrix[i]))
 
