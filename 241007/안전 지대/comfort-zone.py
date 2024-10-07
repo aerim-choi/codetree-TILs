@@ -1,17 +1,17 @@
+import sys
+sys.setrecursionlimit(2500)
+
 #안전 영역의 수 최대 K와 그 때의 안전 영역 수 구하기
 def dfs(x,y,k,matrix):
-    if check_range(x,y):
-        return False
     
-    else: 
-        visited[x][y]=1
-        #좌우하상
-        d = [(0,1),(0,-1),(-1,0),(1,0)]
-        for dx,dy in d:
-            newX, newY = x+dx , y+dy
-            if check_range(newX,newY) and matrix[newX][newY]>k:
-                dfs(newX,newY,k,matrix)
-        
+    visited[x][y]=1
+    #좌우하상
+    d = [(0,1),(0,-1),(-1,0),(1,0)]
+    for dx,dy in d:
+        newX, newY = x+dx , y+dy
+        if check_range(newX,newY) and matrix[newX][newY]>k:
+            dfs(newX,newY,k,matrix)
+    
 
 
 def check_range(x,y):
