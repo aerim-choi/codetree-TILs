@@ -20,7 +20,6 @@ def bfs(num):
         for x,y in zip(dxs,dys):
             new_x, new_y = curr_x+x , curr_y+y
             if search_go(new_x,new_y,num):
-                # print("new_x,new_y:",new_x,new_y)
                 flag+=1
                 visited[new_x][new_y]=1
                 q.append((new_x,new_y))
@@ -46,7 +45,7 @@ def find_max_xy(num):
     find_flag=0
     for i in range(n):
         for j in range(n):
-            if max_num == graph[i][j]:
+            if visited[i][j]==1 and max_num == graph[i][j]:
                 max_i=i
                 max_j=j
                 find_flag=1
@@ -86,6 +85,5 @@ for i in range(k):
         r= t[0]+1
         c= t[1]+1
   
-
 
 print(r,c)
