@@ -16,19 +16,25 @@ block_set = set()
 # 터지게 되는 블럭의 수와 최대 블럭의 크기
 bump_block = 0
 max_block = 0
+bump_visited = [[0 for _ in range(n)]for _ in range(n)]
 
 # 블럭을 이루고 있는 칸의 수가 4개 이상의 경우 터짐
-def check_visited():
+def check_visited(a,b):
     global bump_block
     global max_block
     block_cnt=0
     for i in range(n):
         for j in range(n):
-            if visited[i][j]==1:
+            if visited[i][j]==1 :
                 block_cnt+=1
     
     if block_cnt>=4:
         bump_block+=1
+        
+        for i in range(n):
+            for j in range(n):
+                if visited[i][j]==1:
+                    bump_visited[i][j]=visited[i][j]
     
     max_block = max(max_block, block_cnt)
 
@@ -47,14 +53,12 @@ def dfs(curr_x,curr_y):
 
 
 
+
 for i in range(n):
     for j in range(n):
-        if graph[i][j] in block_set:
-            continue
-        else:
-            block_set.add(graph[i][j])
+        if bump_visited[i][j]==0:
             dfs(i,j)
-            check_visited()
+            check_visited(i,j)  
             visited = [[0 for _ in range(n)]for _ in range(n)]
 
             
