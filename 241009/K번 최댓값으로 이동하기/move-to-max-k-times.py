@@ -13,16 +13,18 @@ def bfs(num):
     #상하좌우
     dxs=[0,0,-1,1]
     dys=[1,-1,0,0]
-    flag=0
+    flag=1
     #시작위치로 부터 상하좌우 인접한 곳을 탐색한다.
     while q:
-        flag+=1
         curr_x, curr_y = q.popleft()
         for x,y in zip(dxs,dys):
             new_x, new_y = curr_x+x , curr_y+y
             if search_go(new_x,new_y,num):
+                # print("new_x,new_y:",new_x,new_y)
+                flag+=1
                 visited[new_x][new_y]=1
                 q.append((new_x,new_y))
+
     if flag==1:
         return False
 
