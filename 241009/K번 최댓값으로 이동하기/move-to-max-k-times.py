@@ -13,6 +13,10 @@ def bfs(num):
     #상하좌우
     dxs=[0,0,-1,1]
     dys=[1,-1,0,0]
+    
+    visited[r-1][c-1]=1 #방문
+    q.append((r-1,c-1)) #큐에 추가
+
     flag=1
     #시작위치로 부터 상하좌우 인접한 곳을 탐색한다.
     while q:
@@ -45,7 +49,7 @@ def find_max_xy(num):
     find_flag=0
     for i in range(n):
         for j in range(n):
-            if visited[i][j]==1 and max_num == graph[i][j]:
+            if visited[i][j]==1 and max_num == graph[i][j]: #방문한 곳중에 최댓값을 가진 인덱스를 골라야함 
                 max_i=i
                 max_j=j
                 find_flag=1
@@ -74,8 +78,7 @@ for i in range(k):
     q = deque()
     #방문한 정보를 담는 2차원 배열
     visited = [[0 for _ in range(n)]for _ in range(n)]
-    visited[r-1][c-1]=1 #방문
-    q.append((r-1,c-1)) #큐에 추가
+    
     #탐색이 안되면 멈추고 r,c리턴 
     
     if bfs(graph[r-1][c-1])==False:
