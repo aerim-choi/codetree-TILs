@@ -19,7 +19,7 @@ def in_range(x,y):
     return 0<=x and x<n and 0<=y and y<n
 
 def can_go(x,y,color):
-    if in_range(x,y):
+    if not in_range(x,y):
         return False
     if visited[x][y]==1 :
         return False
