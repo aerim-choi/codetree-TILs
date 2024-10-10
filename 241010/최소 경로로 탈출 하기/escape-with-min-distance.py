@@ -46,4 +46,7 @@ for i in range(n):
 push(0,0,0)
 bfs()
 
-print(step[n-1][m-1])
+if step[n-1][m-1]>0:
+    print(step[n-1][m-1])
+else:
+    print(-1)
