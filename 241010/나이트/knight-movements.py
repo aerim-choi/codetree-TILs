@@ -2,6 +2,7 @@ from collections import deque
 n = int(input())
 start_x, start_y , end_x,end_y = map(int,input().split())
 
+
 def in_range(x,y):
     return x>=0 and x<n and y>=0 and y<n
 
@@ -38,7 +39,10 @@ def bfs():
 push(start_x-1,start_y-1,0)
 bfs()
 
-if step[end_x-1][end_y-1]==0:
+#만약 시작점과 도착점이 같으면 0번이동이라서 0을 반환한다.
+if start_x==end_x and start_y ==end_y:
+    print(0)
+elif step[end_x-1][end_y-1]==0:
     print(-1)
 else:
     print(step[end_x-1][end_y-1])
