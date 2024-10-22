@@ -10,22 +10,21 @@ def push(answer):
     result.append(int(temp))
 
 def choose(curr_num):
-    if curr_num > n:
+    if curr_num == 0:
         push(answer)
         return
     
-    for i in range(1, n+1):
+    for i in range(n, 0, -1):
         if visited[i]==True:
             continue
         visited[i]= True
         answer.append(i)
-        choose(curr_num+1)
+        choose(curr_num-1)
 
         answer.pop()
         visited[i]=False
-choose(1)
+choose(n)
 
-result.sort(reverse=True)
 for s in result :
     s =str(s) 
     temp = list(s)
