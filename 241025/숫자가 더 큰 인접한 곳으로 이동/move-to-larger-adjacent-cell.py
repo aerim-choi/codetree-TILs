@@ -17,10 +17,9 @@ def in_range(r,c):
         return False
 
 def simulate(r,c):
-    global curr_r, curr_c 
     
     # 상하좌우
-    drs = [1,-1,0,0]
+    drs = [-1,1,0,0]
     dcs = [0,0,-1,1]
 
     max_num=0
@@ -28,22 +27,19 @@ def simulate(r,c):
 
     find_flag=1
     for dr,dc in zip(drs,dcs):
-        new_r, new_c = curr_r+dr, curr_c+dc
+        new_r, new_c = r+dr, c+dc
 
-        if in_range(new_r, new_c) and graph[curr_r][curr_c]<graph[new_r][new_c]:
+        if in_range(new_r, new_c) and graph[r][c]<graph[new_r][new_c]:
             
             max_num = max(max_num, graph[new_r][new_c])
-            max_pos = (new_r,new_c)
+            max_pos = (new_r,new_c) 
             break
-   
-    curr_r, curr_c = max_pos
+    
     if max_num!=0:
         print(max_num, end=" ")
     return max_pos
 
 while True:
-    
-    if simulate(curr_r,curr_c)==(-1,-1):
+    curr_r,curr_c = simulate(curr_r,curr_c)
+    if (curr_r,curr_c)==(-1,-1):
         break
-    else:
-        curr_r, curr_c = simulate(curr_r,curr_c)
