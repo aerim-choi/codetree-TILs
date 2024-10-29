@@ -22,7 +22,7 @@ class priortyQueue:
         if self.empty():
             raise Exception("PriortyQueue is empty")
 
-        return -self.itmes[0]
+        return -self.items[0]
 
 
 n = int(input())
