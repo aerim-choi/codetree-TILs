@@ -6,9 +6,12 @@ n = int(input())
 memo = [-1 for _ in range(n+1)]
 
 if n<3:
+    #점화식을 채우기 위해서는 아직 오르지 않은 최초의 상태(dp[0])도 한가지의 가짓수가 있다고 판단해야함
+    memo[0]=1 
     memo[1]=0
     memo[2]=1
 else:
+    memo[0]=1 
     memo[1]=0
     memo[2]=1
     memo[3]=1
