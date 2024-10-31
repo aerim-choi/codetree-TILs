@@ -22,4 +22,7 @@ while len(max_heap)>1:
         continue
 
 #마지막에 남아있는 수를 구하자
-print(-max_heap[0])
+if max_heap:
+    print(-max_heap[0])
+else:
+    print(-1)
