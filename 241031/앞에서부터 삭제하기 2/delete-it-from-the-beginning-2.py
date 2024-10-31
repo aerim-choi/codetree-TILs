@@ -1,27 +1,21 @@
-from collections import deque
 import heapq
 n = int(input())
+nums = list(map(int, input().split()))
 
-max_heap=[]
+num_sum= nums[len(nums)-1]
+min_heap = []
+heapq.heappush(min_heap, (nums[len(nums)-1]))
 
-q = deque(map(int, input().split()))
+max_avg = -1
 
-#평균값 구하기
-def calc(q):
-    #가장 작은 숫자 하나를 제외한 평균을 구한다.  
-    q.remove(min(q))
+#K개를 삭제한다
+for i in range(n-2, 0,-1): 
+    num_sum += nums[i]
+    heapq.heappush(min_heap,nums[i])
 
-    return sum(q)/len(q)
+    avg = (num_sum - min_heap[0]) / (n - i -1)
 
-#k개를 삭제해서 남아 있는 정수 중 가장 작은 숫자하나를 제외한 평균을 구한다.
-#1<=k<N-2
-for k in range(1, n-2+1, 1):
+    max_avg = max(max_avg, avg)
 
-    copy_q = q.copy()
 
-    for i in range(0,k):
-        copy_q.popleft() #뽑아
-    
-    heapq.heappush(max_heap, -calc(copy_q))
-
-print(f"{-max_heap[0]:.2f}")
+print(f"{max_avg:.2f}")
