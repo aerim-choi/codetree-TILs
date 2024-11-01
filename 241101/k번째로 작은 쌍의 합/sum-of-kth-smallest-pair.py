@@ -18,7 +18,8 @@ cnt = 0
 
 while min_heap:
     min_sum, min_arr1, min_arr2_idx = heapq.heappop(min_heap)
-    heapq.heappush(min_heap,(min_arr1+array2[min_arr2_idx+1], min_arr1, min_arr2_idx+1))
+    if min_arr2_idx+1 <= m-1:
+        heapq.heappush(min_heap,(min_arr1+array2[min_arr2_idx+1], min_arr1, min_arr2_idx+1))
     cnt+=1
 
     if cnt==k:
