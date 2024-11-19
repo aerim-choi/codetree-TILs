@@ -4,23 +4,20 @@ n = int(input())
 
 arr = list(map(int, input().split()))
 
-print(-1)
-print(-1)
+min_heap=[]
 
+for num in arr:
+    heapq.heappush(min_heap,num)
 
-def find_min(arr):
-    min_heap = []
+    if len(min_heap)<3:
+        print(-1)
+    else:
+        a= heapq.heappop(min_heap)
+        b= heapq.heappop(min_heap)
+        c= heapq.heappop(min_heap)
 
-    for num in arr:
-        heapq.heappush(min_heap,num)
+        print(a*b*c)
 
-    #최솟값 3개
-    answer = 1
-
-    for _ in range(3):
-        answer = answer * heapq.heappop(min_heap)
-    return answer
-    
-
-for i in range(2,len(arr)):
-    print(find_min(arr[0:i+1]))
+        heapq.heappush(min_heap,a)
+        heapq.heappush(min_heap,b)
+        heapq.heappush(min_heap,c)
