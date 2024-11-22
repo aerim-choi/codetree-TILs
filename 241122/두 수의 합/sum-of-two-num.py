@@ -14,5 +14,4 @@ for elem in arr:
         count[elem] +=1
     else:
         count[elem]=1
-print(count)
 print(ans)
