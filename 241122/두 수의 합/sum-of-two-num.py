@@ -2,10 +2,17 @@ n, k = map(int, input().split())
 
 arr = list(map(int, input().split()))
 
-answer=0
-for i in range(0,len(arr)-1):
-    for j in range(i+1, len(arr)):
-        if arr[i]+ arr[j]==k:
-            answer+=1
+count = dict()
 
-print(answer)
+ans = 0
+
+for elem in arr:
+    diff = k - elem
+    if diff in count:
+        ans += count[diff]
+    if elem in count:
+        count[elem] +=1
+    else:
+        count[elem]=1
+print(count)
+print(ans)
