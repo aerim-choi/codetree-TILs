@@ -9,9 +9,9 @@ for s in arr:
         words[s]=1
 
 flag = False
-for key, value in words.items():
-    if value==1:
-        print(key, end="")
+for s in arr:
+    if words[s]==1:
+        print(s)
         flag=True
         break
 if flag==False:
