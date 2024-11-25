@@ -4,35 +4,36 @@ arr = list(map(int, input().split()))
 
 freq = dict()
 
-max_key= 0
-max_value=0
-
 for num in arr:
     if num in freq:
         freq[num]+=1
-
-        if max_value < freq[num]:
-            max_value = freq[num]
-            max_key = num
         
     else:
         freq[num]=1
 
-        if max_key < num:
-            max_key=num
-            max_value=1
+
+topk=dict()
+
+keys = []
+for key, value in freq.items():
+    if value in topk:
+        topk[value].append(key)
+        topk[value] = sorted(topk[value],reverse=True)
+    else:
+        topk[value] = [key]
+        keys.append(value)
+
+keys = sorted(keys, reverse=True)
 
 
-arr = sorted(arr)
-answer = []
-for num in arr:
-    if num == max_key:
-        answer.append(num)
+for num in keys:
+    if k<=0:
         break
-    if freq[num] == max_value:
-        if num not in answer:
-            answer.append(num)
+    for answer in topk[num]:
+        if k<=0:
+            break
 
-answer = sorted(answer, reverse=True)
-for i in answer:
-    print(i, end=" ")
+        print(answer, end=" ")
+        k-=1
+        
+    
