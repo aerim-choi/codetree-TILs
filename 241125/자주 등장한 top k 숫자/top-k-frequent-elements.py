@@ -18,13 +18,14 @@ keys = []
 for key, value in freq.items():
     if value in topk:
         topk[value].append(key)
-        topk[value] = sorted(topk[value],reverse=True)
     else:
         topk[value] = [key]
         keys.append(value)
 
 keys = sorted(keys, reverse=True)
 
+for key, value in topk.items():
+    topk[key] = sorted(topk[key],reverse=True)
 
 for num in keys:
     if k<=0:
