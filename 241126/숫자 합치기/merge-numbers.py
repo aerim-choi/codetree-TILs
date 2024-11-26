@@ -20,6 +20,7 @@ while arr:
         answer += num1+num2
 
 
+pair_arr.sort()
 
 while pair_arr:
     if len(pair_arr)==1:
