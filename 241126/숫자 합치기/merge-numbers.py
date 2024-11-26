@@ -12,11 +12,9 @@ while len(arr)>1:
     a = heapq.heappop(arr)
     b = heapq.heappop(arr)
 
-    answer = a+b
+    answer +=(a+b)
     heapq.heappush(arr,a+b)
 
-while arr:
-    answer += heapq.heappop(arr)
-
 print(answer)
+
 
