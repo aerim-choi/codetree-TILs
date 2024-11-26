@@ -4,21 +4,28 @@ arr = list(map(int, input().split()))
 
 arr.sort()
 
-#2개씩 뽑은다음에 더해
-answer = 0
+#2개씩 계속 뽑아 
 
-prev = 0 
+pair_arr = []
+answer = 0 
+
 while arr:
 
-    if len(arr)==1:
-        break
-
+    if len(arr)==1: #홀수개 일 수도 있으므로 
+        pair_arr.append(arr.pop(0))
     else:
-        num1 = arr[0]
-        num2 = arr[1]
+        num1= arr.pop(0)
+        num2= arr.pop(0)
+        pair_arr.append(num1+num2)
+        answer += num1+num2
 
-        answer+= prev+ (arr[0]+arr[1])
-        prev = arr[0]+arr[1]
-       
+
+
+while pair_arr:
+    if len(pair_arr)==1:
+        answer+=pair_arr.pop(0)
+    else:
+        answer+=pair_arr.pop(0)+pair_arr.pop(0)
+
 print(answer)
 
