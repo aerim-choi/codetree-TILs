@@ -1,29 +1,24 @@
-from collections import deque 
 n = int(input())
 
-q = deque()
 arr = list(map(int, input().split()))
 
 arr.sort()
 
-for num in arr:
-    q.append(num)
-
 #2개씩 뽑은다음에 더해
 answer = 0
 
-while q:
+prev = 0 
+while arr:
 
-    if len(q)==1:
+    if len(arr)==1:
         break
 
     else:
-        num1 = q.popleft()
-        num2 = q.popleft()
+        num1 = arr[0]
+        num2 = arr[1]
 
-        answer+=(num1+num2)
-
-        q.append(num1+num2)
-
+        answer+= prev+ (arr[0]+arr[1])
+        prev = arr[0]+arr[1]
+       
 print(answer)
 
