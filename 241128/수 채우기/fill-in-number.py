@@ -1,6 +1,6 @@
 n = int(input())
 
-answer = 0
+answer = -1
 
 #일단 5원짜리가 최대 몇개 필요한지 알아본다.
 max_coin_5 = n//5
