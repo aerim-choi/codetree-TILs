@@ -10,12 +10,12 @@ a_arr.sort()
 b_arr.sort()
 
 #모든 물건 제거 불가능할 경우
-if max(a_arr)<max(b_arr):
+if a_arr[len(arr)-1]<b_arr[len(b_arr)-1]:
     print(-1)
 
 #제거 못하는 기계 삭제
 for a in a_arr:
-    if a<min(b_arr):
+    if a<b_arr[0]:
         a_arr.remove(a)
 
 answer=0
