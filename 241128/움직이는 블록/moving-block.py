@@ -7,25 +7,27 @@ for _ in range(n):
     blocks.append(int(input()))
 
 #target값을 구해
-target = sum(blocks)/len(blocks)
+target = sum(blocks)//len(blocks)
 
 #모든 원소가 target값과 같아야함
 #target보다 많은 블럭을 적은 블록에게 주고 이게 최선임
 answer = 0 
-for i in range(n-1):
-    for j in range(i+1, n):
-        if target > blocks[i] and target<blocks[j]:
+for i in range(n):
+    for j in range(n):
+        
+        if i!=j and target > blocks[i] and target<blocks[j]:
             
-            give = blocks[j]-target
-            send = blocks[i]-target 
+            send = blocks[j]-target
+            take = target-blocks[i]
             
-            result = min(give,send)
+            result = min(send,take)
 
             blocks[i]+=result
             blocks[j]-=result
+
             answer+=result
 
-        if blocks[i]==target:
-            break
-        else:
-            continue
+            if blocks[i]==target:
+                break
+
+print(answer)
