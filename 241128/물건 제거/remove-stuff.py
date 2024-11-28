@@ -10,7 +10,7 @@ a_arr.sort()
 b_arr.sort()
 
 #모든 물건 제거 불가능할 경우
-if a_arr[len(arr)-1]<b_arr[len(b_arr)-1]:
+if a_arr[len(a_arr)-1]<b_arr[len(b_arr)-1]:
     print(-1)
 
 #제거 못하는 기계 삭제
