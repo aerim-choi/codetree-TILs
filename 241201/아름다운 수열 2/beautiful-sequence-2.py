@@ -18,8 +18,6 @@ for i in range(n-m+1):
     arr = a_arr[i:i+m]
     
     if is_beautiful_list(arr):
-        print(i)
-        print(arr)
         answer+=1
 
 print(answer)
