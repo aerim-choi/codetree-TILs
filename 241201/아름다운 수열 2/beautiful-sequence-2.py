@@ -8,7 +8,7 @@ def is_beautiful_list(arr):
     b_arr_set = set(b_arr)
     arr_set = set(arr)
 
-    if (b_arr_set&arr_set)==arr_set:
+    if (b_arr_set&arr_set)==b_arr_set:
         return True
     else:
         return False
