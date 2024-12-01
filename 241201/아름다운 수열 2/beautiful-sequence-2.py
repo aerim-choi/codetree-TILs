@@ -5,13 +5,13 @@ b_arr = list(map(int, input().split()))
 
 #순서가 바뀌면 아름다운 수열
 def is_beautiful_list(arr):
-    b_arr_set = set(b_arr)
-    arr_set = set(arr)
-
-    if (b_arr_set&arr_set)==b_arr_set:
-        return True
-    else:
-        return False
+    arr.sort()
+    b_arr.sort()
+    for i in range(len(arr)):
+        if arr[i]!=b_arr[i]:
+            return False
+    return True
+        
 
 answer=0
 for i in range(n-m+1):
