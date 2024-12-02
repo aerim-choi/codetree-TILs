@@ -9,6 +9,7 @@ def find_candy(start,end):
 
     candy_num=0
     for i in range(start,end+1):
+        print(start,end)
         if arr[i]>0:
             candy_num+=arr[i]
 
