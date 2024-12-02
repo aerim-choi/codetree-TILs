@@ -4,12 +4,12 @@ arr= [0 for i in range(101)] #바구니의 위치 0<=바구니위치<=100
 def find_candy(start,end):
     if start<0:
         start=0
-    elif end>100:
+    if end>100:
         end=100
 
     candy_num=0
+
     for i in range(start,end+1):
-        print(start,end)
         if arr[i]>0:
             candy_num+=arr[i]
 
