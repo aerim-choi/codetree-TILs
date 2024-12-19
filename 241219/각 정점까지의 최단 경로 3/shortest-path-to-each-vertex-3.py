@@ -41,4 +41,7 @@ for i in range(1, n+1):
 
     
 for i in range(2,n+1):
-    print(dist[i])
+    if dist[i]==INT_MAX:
+        print(-1)
+    else:
+        print(dist[i])
