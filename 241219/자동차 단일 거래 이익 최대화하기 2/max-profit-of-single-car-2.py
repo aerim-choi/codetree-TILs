@@ -1,13 +1,20 @@
+import heapq 
+
+heap = []
 n = int(input())
 
 car_price_list = list(map(int, input().split()))
 
 answer = 0 #최대이익 
 
-for i in range(len(car_price_list)-1, 1, -1):
-        
-        diff = car_price_list[i] - min(car_price_list[0:i-1])
+heapq.heappush(heap, car_price_list[0])
+for i in range(0, len(car_price_list)):
+    #현재값 - 최소 
+    diff = car_price_list[i]-heap[0]
+
+    answer = max(answer,diff)
+
+    heapq.heappush(heap, car_price_list[i])
     
-        answer=max(diff, answer)
 
 print(answer)
