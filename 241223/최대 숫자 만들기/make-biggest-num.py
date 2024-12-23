@@ -26,18 +26,7 @@ arr = []
 for i in range(n):
     arr.append(int(input()))
 
-arr.sort(reverse=True)
+arr.sort(key=cmp_to_key(compare))
 
-s = str(arr[0])
-for i in range(1, len(arr)):
-    a = str(arr[i])
-    # 뒤에 붙이기, 앞에 붙이기
-    compare_ans = compare( s , a )
-
-    if compare_ans== -1:
-        s = s + a
-    else : 
-        s = a + s
-
-answer = s
-print(answer)
+for elem in arr:
+    print(elem, end="")
