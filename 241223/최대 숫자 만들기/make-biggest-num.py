@@ -21,10 +21,12 @@ def compare(a,b):
 
 n = int(input())
 arr = []
-arr.sort()
+
 
 for i in range(n):
     arr.append(int(input()))
+
+arr.sort(reverse=True)
 
 s = str(arr[0])
 for i in range(1, len(arr)):
