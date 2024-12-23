@@ -9,10 +9,10 @@ from functools import cmp_to_key
 
 def compare(a,b):
     # a 가 앞에 있다면
-    if str(a)+str(b) > str(b)+ str(a):
+    if a > b:
         return -1
     # b가 더 앞에 있어야함 
-    if str(a)+str(b) < str(b) +str(a):
+    if b > a:
         return 1
     # 우선순위가 동일
     return 0
