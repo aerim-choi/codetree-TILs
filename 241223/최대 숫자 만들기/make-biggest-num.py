@@ -7,12 +7,12 @@ from functools import cmp_to_key
 # 둘의 우선순위가 동일하다면 0을 반환하면 됩니다.
 # 보통 반환값에 1, -1, 0 을 사용합니다
 
-def compare(x,y):
-    #x가 y보다 크다면
-    if x > y:
+def compare(a,b):
+    # a 가 앞에 있다면
+    if str(a)+str(b) > str(b)+ str(a):
         return -1
-    #y가 x보다 크다면
-    if y > x:
+    # b가 더 앞에 있어야함 
+    if str(a)+str(b) < str(b) +str(a):
         return 1
     # 우선순위가 동일
     return 0
