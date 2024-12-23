@@ -9,10 +9,10 @@ from functools import cmp_to_key
 
 def compare(a,b):
     # a 가 앞에 있다면
-    if a > b:
+    if str(a)+str(b) > str(b)+str(a):
         return -1
     # b가 더 앞에 있어야함 
-    if b > a:
+    if str(b)+str(a) > str(a)+ str(b):
         return 1
     # 우선순위가 동일
     return 0
@@ -32,7 +32,7 @@ s = str(arr[0])
 for i in range(1, len(arr)):
     a = str(arr[i])
     # 뒤에 붙이기, 앞에 붙이기
-    compare_ans = compare(int(s+a), int(a+s))
+    compare_ans = compare( s , a )
 
     if compare_ans== -1:
         s = s + a
